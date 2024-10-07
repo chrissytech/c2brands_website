@@ -15,9 +15,9 @@
 }
 
 body {
-  /* color: var(--foreground); */
-  /* background: var(--background); */
-  font-family: Arial, Helvetica, sans-serif;
+  /* color: var(--foreground); Clash Display General Sans */
+  /* background: var(--background); sans-serif, Arial, Helvetica,*/
+  font-family: Roboto, sans-serif, Arial, Helvetica,;
 }
 
 @layer utilities {
@@ -25,3 +25,66 @@ body {
     text-wrap: balance;
   }
 }
+
+/* globals.css */
+
+.container1 {
+  max-width: 100%; /* Full width by default */
+  padding-left: 1rem;  /* Padding on the left */
+  padding-right: 1rem; /* Padding on the right */
+  margin-left: auto;   /* Center the container */
+  margin-right: auto;  /* Center the container */
+}
+
+@media (min-width: 640px) {
+  .container1 {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container1 {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container1 {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container1 {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container1 {
+    max-width: 1536px;
+  }
+}
+
+@keyframes slide3 {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.slider-container3 {
+  width: 100%;
+}
+
+.slider-content3 {
+  width: 200%;
+  
+}
+
+.animate-slider3 {
+  animation: slide3 90s linear infinite;
+}
+
