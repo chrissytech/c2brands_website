@@ -103,7 +103,7 @@ export const Paragraph2: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => (
   <p
-    className={`text-[16px] leading-[40px]  ${body_p_regular.className} ${className}`}
+    className={`text-[16px] leading-[40px]   ${body_p_regular.className} ${className}`}
   >
     {children}
   </p>
@@ -114,7 +114,7 @@ export const Paragraph2: React.FC<{
     className?: string;
   }> = ({ children, className = "" }) => (
     <p
-      className={`text-[18px] leading-[40px]  ${body_p_light.className} ${className}`}
+      className={`text-[18px] leading-[40px]   ${body_p_light.className} ${className}`}
     >
       {children}
     </p>
@@ -126,7 +126,7 @@ export const Paragraph2: React.FC<{
     className?: string;
   }> = ({ children, className = "" }) => (
     <p
-      className={`text-[20px] leading-[40px]  ${body_Font_Regular.className} ${className}`}
+      className={`text-[20px] leading-[40px]   ${body_Font_Regular.className} ${className}`}
     >
       {children}
     </p>

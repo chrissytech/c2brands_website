@@ -17,11 +17,13 @@ interface ButtonProps {
   backgroundColor?: string;
   isLink?: boolean;
   additionalClasses?: string;
+  type?: any;
 }
 
 const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
+  type,
   href,
   color = "text-white",
   border = "border",
@@ -29,18 +31,18 @@ const Button: React.FC<ButtonProps> = ({
   isLink = false,
   additionalClasses = "",
 }) => {
-  const commonClasses = `${backgroundColor} ${color} ${border} ${body_Font.className} px-[24px] py-[16px] font-medium text-[18px] rounded-full w-fit cursor-pointer ${additionalClasses}`;
+  const commonClasses = `${backgroundColor} ${color} ${border} ${body_Font.className} px-[24px] py-[16px] font-medium text-[18px] rounded-full  cursor-pointer text-center ${additionalClasses}`;
 
   if (isLink && href) {
     return (
-      <Link  href={href} passHref>
+      <Link  href={href} passHref >
         <p className={commonClasses}>{text}</p>
       </Link>
     );
   }
 
   return (
-    <button onClick={onClick} className={commonClasses}>
+    <button type={type} onClick={onClick} className={commonClasses}>
       {text}
     </button>
   );
