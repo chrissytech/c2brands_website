@@ -1,9 +1,18 @@
-import { Header4, Paragraph1 } from '@/components/Text';
-import React from 'react'
+"use client";
+
+import { Header4, Paragraph1 } from "@/components/Text";
+import React from "react";
+import AOS from "aos";
 
 function Section2() {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
+
   return (
-    <div className=" relative bg-bg_gray">
+    <div className=" relative bg-bg_gray" data-aos="flip-up">
       <div className=" container1 py-[100px]">
         {" "}
         <div className="  grid grid-cols-6 gap-[30px]-">
@@ -48,4 +57,4 @@ function Section2() {
   );
 }
 
-export default Section2
+export default Section2;

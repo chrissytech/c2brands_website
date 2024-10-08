@@ -317,7 +317,7 @@ const FormComponent = () => {
       <div className="flex justify-center w-full">
         
 
-        <Button text="Continue" additionalClasses=" w-[385px] border-primary" type="submit" />
+        <Button text="Continue" additionalClasses=" w-[385px] border-primary-" type="submit" />
       </div>
     </form>
   );

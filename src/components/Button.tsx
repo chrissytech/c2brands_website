@@ -1,4 +1,4 @@
-"use client"; // This tells Next.js it's a client-side component
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -31,19 +31,26 @@ const Button: React.FC<ButtonProps> = ({
   isLink = false,
   additionalClasses = "",
 }) => {
-  const commonClasses = `${backgroundColor} ${color} ${border} ${body_Font.className} px-[24px] py-[16px] font-medium text-[18px] rounded-full  cursor-pointer text-center ${additionalClasses}`;
+  const commonClasses = `relative overflow-hidden group ${backgroundColor} ${color} ${border} ${body_Font.className} px-[24px] py-[16px] font-medium  text-[12px] sm:text-[14px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[18px] rounded-full cursor-pointer text-center ${additionalClasses}`;
+
+  const hoverEffectClasses =
+    "absolute inset-0 bg-black -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out";
 
   if (isLink && href) {
     return (
-      <Link  href={href} passHref >
-        <p className={commonClasses}>{text}</p>
+      <Link href={href} passHref className={commonClasses}>
+        <p>
+          <span className={hoverEffectClasses} aria-hidden="true"></span>
+          <span className="relative z-10">{text}</span>
+        </p>
       </Link>
     );
   }
 
   return (
     <button type={type} onClick={onClick} className={commonClasses}>
-      {text}
+      <span className={hoverEffectClasses} aria-hidden="true"></span>
+      <span className="relative z-10">{text}</span>
     </button>
   );
 };

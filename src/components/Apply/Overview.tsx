@@ -1,15 +1,27 @@
+"use client";
+
 import Button from "@/components/Button";
 import { Header1Plus, Header3, Header4, Paragraph1 } from "@/components/Text";
 import Link from "next/link";
 import React from "react";
 import FormComponent from "./FormSection";
+import AOS from "aos";
 
 function Overview() {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
+
   return (
     <div className=" bg-bg_gray py-[100px]">
-      <div className=" container1 p-[100px]  bg-white text-p_black">
+      <div
+        className=" container1 -  bg-white text-p_black"
+        data-aos="flip-right"
+      >
         {" "}
-        <div className=" flex flex-col gap-[24px] items-center w-full mb-[64px]">
+        <div className=" p-[100px] flex flex-col gap-[24px] items-center w-full mb-[64px]">
           <Header1Plus>
             Let{"'"}s <span className=" text-primary">Build </span> Something
             Great Together
@@ -18,7 +30,7 @@ function Overview() {
             Contact Chrissy to collaborate and drive your business forward. Let
             {"'"}s talk!
           </Paragraph1>
-          
+
           <div className=" mt-[36px] space-y-[24px] mb-[24px]">
             <Paragraph1 className="  text-center ">
               To ensure our best work, I only accept ONE new Strategic Business

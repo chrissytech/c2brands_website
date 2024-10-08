@@ -1,14 +1,28 @@
+"use client";
+
+
 import Button from "@/components/Button";
 import { Header3, Header4, Paragraph1, Paragraph2, ParagraphLink1 } from "@/components/Text";
 import Link from "next/link";
 import React from "react";
+import AOS from "aos";
 
 function Section4() {
+
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
+
   return (
     <div className=" bg-bg_gray">
       <div className=" container1 py-[100px] text-p_black">
         {" "}
-        <div className=" flex flex-col gap-[24px] items-center w-full mb-[64px]">
+        <div
+          className=" flex flex-col gap-[24px] items-center w-full mb-[64px]"
+          data-aos="fade-up"
+        >
           <Header3>
             My <span className=" text-primary">Simple 3-Steps</span> Approach
           </Header3>
@@ -17,9 +31,12 @@ function Section4() {
             approach that always works.
           </Paragraph1>
         </div>
-        <div className=" grid grid-cols-6 gap-[30px]">
-          <div className=" col-span-2">
-            <div className=" bg-[#FFDCCE] py-[53px] p-[32px] rounded-[24px] ">
+        <div className=" grid grid-cols-1 sm:grid-cols-6 gap-[30px]">
+          <div className=" sm:col-span-2">
+            <div
+              className=" bg-[#FFDCCE] py-[53px] p-[32px] rounded-[24px] "
+              data-aos="fade-right"
+            >
               <div className="space-y-[32px]  ">
                 <div className=" flex w-full justify-end-  ">
                   <img src="/images/ideas.svg" alt="chrissy" />
@@ -39,8 +56,8 @@ function Section4() {
               </div>
             </div>
           </div>
-          <div className=" col-span-2 space-y-[30px]">
-            <div className=" bg-[#BECBB9]  rounded-[24px] ">
+          <div className=" sm:col-span-2 space-y-[30px]">
+            <div className=" bg-[#BECBB9]  rounded-[24px] " data-aos="fade-up">
               <div className="space-y-[32px] p-[32px] py-[53px]">
                 <div className=" flex w-full justify-end-  ">
                   <img src="/images/gears.svg" alt="branding" />
@@ -61,8 +78,8 @@ function Section4() {
               </div>
             </div>
           </div>
-          <div className=" col-span-2 space-y-[30px]">
-            <div className=" bg-[#FF9F78]  rounded-[24px] ">
+          <div className=" sm:col-span-2 space-y-[30px]">
+            <div className=" bg-[#FF9F78]  rounded-[24px] " data-aos="fade-left">
               <div className="space-y-[32px] p-[32px] py-[53px]">
                 <div className=" flex w-full justify-end-  ">
                   <img src="/images/box1.svg" alt="business" />

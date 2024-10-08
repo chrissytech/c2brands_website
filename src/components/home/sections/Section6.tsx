@@ -1,12 +1,23 @@
+"use client";
+
 import Button from "@/components/Button";
 import { Header1Plus, Header3, Header4, Paragraph1 } from "@/components/Text";
 import Link from "next/link";
 import React from "react";
+import AOS from "aos";
+
 
 function section6() {
+
+   React.useEffect(() => {
+     AOS.init({
+       duration: 1000,
+     });
+   });
+  
   return (
     <div>
-      <div className=" container1 pt-[100px] text-p_black">
+      <div className=" container1 pt-[100px] text-p_black" data-aos="fade-up">
         {" "}
         <div className=" flex flex-col gap-[24px] items-center w-full mb-[64px]">
           <Header1Plus>
@@ -19,7 +30,7 @@ function section6() {
           <Button
             text="Book A Session"
             //   onClick={handleClick} // onClick is passed from a client component
-            additionalClasses="border-primary mt-[48px] w-[385px]  "
+            additionalClasses="border-primary- mt-[48px] w-[385px]  "
           />
         </div>
       </div>

@@ -1,14 +1,33 @@
+"use client";
+
 import Button from "@/components/Button";
-import { Header3, Header4, Paragraph1, ParagraphLink1 } from "@/components/Text";
+import {
+  Header3,
+  Header4,
+  Paragraph1,
+  ParagraphLink1,
+} from "@/components/Text";
 import Link from "next/link";
 import React from "react";
+import AOS from "aos";
 
 function Section2() {
+
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
+
+
   return (
     <div>
       <div className=" container1 pt-[100px] text-p_black">
         {" "}
-        <div className=" flex flex-col gap-[24px] items-center w-full mb-[64px]">
+        <div
+          className=" flex flex-col gap-[24px] items-center w-full mb-[64px]"
+          data-aos="fade-up"
+        >
           <Header3>
             Are you <span className=" text-primary">missing</span> the mark?
           </Header3>
@@ -18,15 +37,15 @@ function Section2() {
             achieve impactful, measurable results. It{"'"}s time to #GetFocused!
           </Paragraph1>
         </div>
-        <div className=" grid grid-cols-5 gap-[30px]">
-          <div className=" col-span-3">
-            <div className=" bg-bg_gray rounded-[24px] ">
+        <div className=" grid grid-cols-1  sm:grid-cols-5 gap-[30px]">
+          <div className="  sm:col-span-3">
+            <div className=" bg-bg_gray rounded-[24px] " data-aos="fade-right">
               <img
                 src="/images/section2_img1.svg"
                 alt="branding"
                 className="w-full"
               />{" "}
-              <div className="space-y-[32px] p-[32px]">
+              <div className="space-y-[32px] p-[32px] w-full">
                 <Header4>Let{"'"}s Work Together</Header4>{" "}
                 <Paragraph1>
                   I collaborate with businesses like yours to refine their
@@ -38,13 +57,16 @@ function Section2() {
                 <Button
                   text="Book A Session"
                   //   onClick={handleClick} // onClick is passed from a client component
-                  additionalClasses="border-primary "
+                  additionalClasses="border-primary- "
                 />
               </div>
             </div>
           </div>
-          <div className=" col-span-2 space-y-[30px]">
-            <div className=" bg-bg_gray rounded-[24px] ">
+          <div className=" sm:col-span-2 space-y-[30px]">
+            <div
+              className=" bg-bg_gray rounded-[24px] "
+              data-aos="fade-down-left"
+            >
               <div className="space-y-[32px] p-[32px]">
                 <Header4>My Goal</Header4>{" "}
                 <Paragraph1>
@@ -57,7 +79,10 @@ function Section2() {
                 <img src="/images/people.svg" alt="branding" className="w-" />{" "}
               </div>
             </div>
-            <div className=" bg-primary text-white rounded-[24px] ">
+            <div
+              className=" bg-primary text-white rounded-[24px] "
+              data-aos="fade-up-left"
+            >
               <div className="space-y-[32px] p-[32px]">
                 <div className=" flex w-full justify-end  ">
                   <img src="/images/3_circles.svg" alt="" />

@@ -4,6 +4,8 @@ import Button from "@/components/Button";
 import { Header3, Header4, Header5, Paragraph1 } from "@/components/Text";
 import Link from "next/link";
 import React, { useState } from "react";
+import AOS from "aos";
+
 
 function Section5() {
   const [openedQuestionIndex, setOpenedQuestionIndex] = useState(null);
@@ -11,6 +13,12 @@ function Section5() {
   const toggleParagraphVisibility = (index: any) => {
     setOpenedQuestionIndex(openedQuestionIndex === index ? null : index);
   };
+
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
 
   // Array of FAQ items
   const faqs = [
@@ -55,7 +63,10 @@ function Section5() {
     <div>
       <div className=" container1 pt-[100px] text-p_black">
         {" "}
-        <div className=" flex flex-col gap-[24px] items-center w-full mb-[64px]">
+        <div
+          className=" flex flex-col gap-[24px] items-center w-full mb-[64px]"
+          data-aos="fade-up"
+        >
           <Header3>
             Frequently Asked <span className=" text-primary">Questions</span>{" "}
           </Header3>
@@ -63,7 +74,10 @@ function Section5() {
             Everything you need to know about our products and services.
           </Paragraph1>
         </div>
-        <div className="flex-row items-center justify-center py-[37px] bg-bg_gray rounded-[24px] ">
+        <div
+          className="flex-row items-center justify-center py-[37px] bg-bg_gray rounded-[24px] "
+          data-aos="flip-up"
+        >
           {/* Mapping over FAQ items */}
           {faqs.map((faq, index) => (
             <div

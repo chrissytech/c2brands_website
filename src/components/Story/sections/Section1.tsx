@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Header3,
   Header4,
@@ -6,14 +8,26 @@ import {
 } from "@/components/Text";
 import Link from "next/link";
 import React from "react";
+import AOS from "aos";
 
 function Section1() {
+
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
+
+
   return (
     <div>
       {" "}
       <div className=" container1 py-[100px] text-p_black">
         {" "}
-        <div className=" flex gap-[24px] flex-col items-center w-full mb-[64px]">
+        <div
+          className=" flex gap-[24px] flex-col items-center w-full mb-[64px]"
+          data-aos="fade-up"
+        >
           <Header3>My Story</Header3>
           <Paragraph1 className=" max-w-[883px] text-center ">
             Where Strategy Meets Creativity.{" "}
@@ -21,7 +35,10 @@ function Section1() {
         </div>
         <div className=" grid grid-cols-6 gap-[30px] items-center">
           <div className=" col-span-3">
-            <div className=" bg-bg_gray rounded-[24px] p-[31px] ">
+            <div
+              className=" bg-bg_gray rounded-[24px] p-[31px] "
+              data-aos="fade-right"
+            >
               <img
                 src="/images/chissy_carpenter.svg"
                 alt="branding"
@@ -30,7 +47,7 @@ function Section1() {
             </div>
           </div>
           <div className=" col-span-3 space-y-[30px]">
-            <div className="  ">
+            <div className="  " data-aos="fade-left">
               <div className="space-y-[32px] text-justify ">
                 <Header4>Transform Your Brand</Header4>{" "}
                 <Paragraph1>
@@ -56,7 +73,10 @@ function Section1() {
             </div>
           </div>
         </div>
-        <div className="mt-[64px] space-y-[64px] text-justify ">
+        <div
+          className="mt-[64px] space-y-[64px] text-justify "
+          data-aos="zoom-in"
+        >
           <Paragraph1>
             While plugging away in the corporate world, I gained incredible
             experience working with many different brands. From the H&R Block
