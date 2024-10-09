@@ -33,12 +33,13 @@ function HeroSection() {
             <div className="flex sm:flex-row flex-col items-center gap-[24px] sm:gap-[32px]">
               <Button
                 text="Let’s work together"
-                //   onClick={handleClick} // onClick is passed from a client component
+                href="/apply"
+                isLink={true}
                 additionalClasses="border-primary sm:w-fit w-full "
               />
               <Button
                 text="Book a section"
-                href="https://google.com"
+                href="/apply"
                 isLink={true}
                 color="text-white"
                 backgroundColor=" bg-p_black"

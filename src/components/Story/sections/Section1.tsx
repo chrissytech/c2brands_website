@@ -22,10 +22,10 @@ function Section1() {
   return (
     <div>
       {" "}
-      <div className=" container1 py-[100px] text-p_black">
+      <div className=" container1 py-[24px] sm:py-[100px] text-p_black">
         {" "}
         <div
-          className=" flex gap-[24px] flex-col items-center w-full mb-[64px]"
+          className=" flex sm:gap-[24px] flex-col items-center w-full mb-[24px] sm:mb-[64px]"
           data-aos="fade-up"
         >
           <Header3>My Story</Header3>
@@ -33,8 +33,8 @@ function Section1() {
             Where Strategy Meets Creativity.{" "}
           </Paragraph1>
         </div>
-        <div className=" grid grid-cols-6 gap-[30px] items-center">
-          <div className=" col-span-3">
+        <div className=" grid grid-cols-1 sm:grid-cols-6 gap-[24px] sm:gap-[30px] items-center">
+          <div className=" sm:col-span-3">
             <div
               className=" bg-bg_gray rounded-[24px] p-[31px] "
               data-aos="fade-right"
@@ -46,9 +46,9 @@ function Section1() {
               />{" "}
             </div>
           </div>
-          <div className=" col-span-3 space-y-[30px]">
+          <div className=" sm:col-span-3 space-y-[24px] sm:space-y-[30px]">
             <div className="  " data-aos="fade-left">
-              <div className="space-y-[32px] text-justify ">
+              <div className="sm:space-y-[32px] space-y-[24px] text-justify ">
                 <Header4>Transform Your Brand</Header4>{" "}
                 <Paragraph1>
                   I{"'"} m Chrissy Carpenter, founder of the C-Sqaured Brands,
@@ -74,7 +74,7 @@ function Section1() {
           </div>
         </div>
         <div
-          className="mt-[64px] space-y-[64px] text-justify "
+          className="mt-[24px] sm:mt-[64px] space-y-[24px] sm:space-y-[64px] text-justify "
           data-aos="zoom-in"
         >
           <Paragraph1>

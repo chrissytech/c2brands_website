@@ -23,7 +23,7 @@ function Section3() {
   return (
     <div>
       {" "}
-      <div className=" container1 py-[100px] text-p_black">
+      <div className=" container1 py-[24px] sm:py-[100px]  text-p_black">
         {" "}
         <div
           className=" flex sm:gap-[24px] flex-col items-center w-full mb-[24px] sm:mb-[64px]"
@@ -34,7 +34,7 @@ function Section3() {
             Your partner in strategic brand transformation
           </Paragraph1>
         </div>
-        <div className=" grid col-span-1 sm:grid-cols-6 gap-[18px] sm:gap-[30px]">
+        <div className=" grid col-span-1 sm:grid-cols-6 gap-[24px] sm:gap-[30px]">
           <div className=" sm:col-span-3">
             <div
               className=" bg-bg_gray rounded-[24px] p-[31px] "
@@ -64,7 +64,7 @@ function Section3() {
                 </Paragraph1>
                 <div>
                   <Link
-                    href="/"
+                    href="/story"
                     className=" text-[20px] text-primary font-bold underline "
                   >
                     <ParagraphLink1> Read More</ParagraphLink1>

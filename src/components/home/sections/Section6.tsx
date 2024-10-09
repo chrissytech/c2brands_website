@@ -17,11 +17,14 @@ function section6() {
   
   return (
     <div>
-      <div className=" container1 pt-[100px] text-p_black" data-aos="fade-up">
+      <div
+        className=" container1 pt-[24px] sm:pt-[100px] text-p_black"
+        data-aos="fade-up"
+      >
         {" "}
-        <div className=" flex flex-col gap-[24px] items-center w-full mb-[64px]">
+        <div className=" flex flex-col sm:gap-[24px] items-center w-full text-center mb-[64px]">
           <Header1Plus>
-            Let{"'"}s <span className=" text-primary">Build </span> Something
+            Let{"'"}s <span className=" text-primary ">Build </span> Something
             Great Together
           </Header1Plus>
           <Paragraph1 className=" max-w-[883px] text-center ">
@@ -29,8 +32,9 @@ function section6() {
           </Paragraph1>
           <Button
             text="Book A Session"
-            //   onClick={handleClick} // onClick is passed from a client component
-            additionalClasses="border-primary- mt-[48px] w-[385px]  "
+            href="/apply"
+            isLink={true}
+            additionalClasses="border-white mt-[24px] sm:mt-[48px] w-full sm:w-[385px]  "
           />
         </div>
       </div>

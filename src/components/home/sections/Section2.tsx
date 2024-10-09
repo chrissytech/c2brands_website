@@ -22,10 +22,10 @@ function Section2() {
 
   return (
     <div>
-      <div className=" container1 pt-[100px] text-p_black">
+      <div className=" container1 pt-[24px] sm:pt-[100px]  text-p_black">
         {" "}
         <div
-          className=" flex flex-col gap-[24px] items-center w-full mb-[64px]"
+          className=" flex flex-col gap-[8px] sm:gap-[24px] items-center w-full mb-[24px] sm:mb-[64px]"
           data-aos="fade-up"
         >
           <Header3>
@@ -37,7 +37,7 @@ function Section2() {
             achieve impactful, measurable results. It{"'"}s time to #GetFocused!
           </Paragraph1>
         </div>
-        <div className=" grid grid-cols-1  sm:grid-cols-5 gap-[30px]">
+        <div className=" grid grid-cols-1  sm:grid-cols-5 gap-[24px] sm:gap-[30px]">
           <div className="  sm:col-span-3">
             <div className=" bg-bg_gray rounded-[24px] " data-aos="fade-right">
               <img
@@ -45,7 +45,7 @@ function Section2() {
                 alt="branding"
                 className="w-full"
               />{" "}
-              <div className="space-y-[32px] p-[32px] w-full">
+              <div className=" space-y-[24px] sm:space-y-[32px] p-[24px] sm:p-[32px] flex flex-col w-full">
                 <Header4>Let{"'"}s Work Together</Header4>{" "}
                 <Paragraph1>
                   I collaborate with businesses like yours to refine their
@@ -56,18 +56,19 @@ function Section2() {
                 </Paragraph1>
                 <Button
                   text="Book A Session"
-                  //   onClick={handleClick} // onClick is passed from a client component
-                  additionalClasses="border-primary- "
+                  href="/apply"
+                  isLink={true}
+                  additionalClasses="border-0 sm:w-fit w-full "
                 />
               </div>
             </div>
           </div>
-          <div className=" sm:col-span-2 space-y-[30px]">
+          <div className=" sm:col-span-2 space-y-[24px] sm:space-y-[30px]">
             <div
               className=" bg-bg_gray rounded-[24px] "
               data-aos="fade-down-left"
             >
-              <div className="space-y-[32px] p-[32px]">
+              <div className="space-y-[24px] sm:space-y-[32px] p-[24px] sm:p-[32px]">
                 <Header4>My Goal</Header4>{" "}
                 <Paragraph1>
                   With years of experience in the branding and marketing space,
@@ -83,7 +84,7 @@ function Section2() {
               className=" bg-primary text-white rounded-[24px] "
               data-aos="fade-up-left"
             >
-              <div className="space-y-[32px] p-[32px]">
+              <div className="sm:space-y-[32px] space-y-[24px] p-[24px] sm:p-[32px]">
                 <div className=" flex w-full justify-end  ">
                   <img src="/images/3_circles.svg" alt="" />
                 </div>
@@ -93,12 +94,14 @@ function Section2() {
                   work with you to translate your marketing efforts into
                   powerful results.
                 </Paragraph1>
-                <Link
-                  href=""
-                  className=" text-[20px] font-bold text-white underline"
-                >
-                  <ParagraphLink1> Let{"'"}s talk</ParagraphLink1>
-                </Link>
+                <div>
+                  <Link
+                    href="/apply"
+                    className=" text-[20px] font-bold text-white underline"
+                  >
+                    <ParagraphLink1> Let{"'"}s talk</ParagraphLink1>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
