@@ -9,9 +9,8 @@ import { ParagraphLink1 } from "../Text";
 import Button from "../Button";
 import AOS from "aos";
 import React from "react";
-
-
-
+import { db } from "@/lib/firebase"; // Import Firestore database
+import { collection, addDoc } from "firebase/firestore"; // Firestore functions
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First name is required"),
@@ -25,11 +24,35 @@ const validationSchema = Yup.object({
   qualities: Yup.array()
     .of(Yup.string())
     .min(1, "At least one option must be selected"),
+  businessSummary: Yup.string().required("Business summary  is required"),
+  marketingProblems: Yup.string().required("Marketing problem is required"),
+  brandFixAttempt: Yup.string().required("Brand fix attempt is required"),
+  brandDifference: Yup.string().required("Brand difference is required"),
+  whenToStart: Yup.array()
+    .of(Yup.string())
+    .min(1, "At least one option must be selected"),
+  budget: Yup.string().required("Annual revenue is required"),
 });
 
 const FormComponent = () => {
   const [phone, setPhone] = useState("");
   const [step, setStep] = useState(1); // State to track the current tab
+
+  // Firestore submission function
+  const submitToFirestore = async (values: any) => {
+    try {
+      const docRef = await addDoc(collection(db, "formSubmissions"), {
+        ...values,
+        phoneNumber: phone, // Include phone number from the state
+        timestamp: new Date(),
+      });
+      console.log("Document written with ID: ", docRef.id);
+      // Handle success case (e.g., show a success message or navigate)
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      // Handle error case (e.g., show an error message)
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -42,6 +65,7 @@ const FormComponent = () => {
       numberOfEmployees: "",
       annualRevenue: "",
       qualities: [],
+
       businessSummary: "",
       marketingProblems: "",
       brandFixAttempt: "",
@@ -50,16 +74,17 @@ const FormComponent = () => {
       budget: "",
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       console.log("Form Data", values);
+      await submitToFirestore(values); // Call the Firestore submission
     },
   });
 
-   React.useEffect(() => {
-     AOS.init({
-       duration: 1000,
-     });
-   });
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
 
   return (
     <form onSubmit={formik.handleSubmit} className="">
@@ -460,7 +485,7 @@ const FormComponent = () => {
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
-                    name="qualities"
+                    name="whenToStart"
                     value="immediately"
                     onChange={formik.handleChange}
                     className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
@@ -475,7 +500,7 @@ const FormComponent = () => {
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
-                    name="qualities"
+                    name="whenToStart"
                     value="couple_of_days"
                     onChange={formik.handleChange}
                     className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
@@ -490,7 +515,7 @@ const FormComponent = () => {
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
-                    name="qualities"
+                    name="whenToStart"
                     value="this_week"
                     onChange={formik.handleChange}
                     className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
@@ -504,7 +529,7 @@ const FormComponent = () => {
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
-                    name="qualities"
+                    name="whenToStart"
                     value="this_month"
                     onChange={formik.handleChange}
                     className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
@@ -520,7 +545,7 @@ const FormComponent = () => {
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
-                    name="qualities"
+                    name="whenToStart"
                     value="this_year"
                     onChange={formik.handleChange}
                     className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
@@ -536,7 +561,7 @@ const FormComponent = () => {
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
-                    name="qualities"
+                    name="whenToStart"
                     value="not_sure"
                     onChange={formik.handleChange}
                     className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
@@ -550,8 +575,8 @@ const FormComponent = () => {
                   </span>
                 </label>
               </div>
-              {formik.touched.qualities && formik.errors.qualities ? (
-                <div className="text-red-500 ">{formik.errors.qualities}</div>
+              {formik.touched.whenToStart && formik.errors.whenToStart ? (
+                <div className="text-red-500 ">{formik.errors.whenToStart}</div>
               ) : null}
             </div>{" "}
           </div>
