@@ -61,10 +61,10 @@ function Section5() {
   ];
   return (
     <div>
-      <div className=" container1 pt-[24px] sm:pt-[100px] text-p_black">
+      <div className=" container1 pt-[24px] xl:pt-[100px] text-p_black">
         {" "}
         <div
-          className=" flex flex-col sm:gap-[24px] items-center w-full mb-[24px] sm:mb-[64px]"
+          className=" flex flex-col xl:gap-[24px] items-center w-full mb-[24px] xl:mb-[64px]"
           data-aos="fade-up"
         >
           <Header3>
@@ -75,21 +75,24 @@ function Section5() {
           </Paragraph1>
         </div>
         <div
-          className="flex-row items-center justify-center py-4 sm:py-[37px] bg-bg_gray rounded-[24px] "
+          className="flex-row items-center justify-center py-4 xl:py-[37px] bg-bg_gray rounded-[24px] "
           data-aos="flip-up"
         >
           {/* Mapping over FAQ items */}
           {faqs.map((faq, index) => (
             <div
               key={faq.id}
-              className={`w-full px-4 sm:px-[37px] pt-4 sm:py-[21px] ${
+              className={`w-full px-4 xl:px-[37px] pt-4 xl:py-[21px] ${
                 index !== faqs.length - 1
                   ? "border-b-4 border-[#E4E4E7]"
-                  : "sm:-mb-6"
+                  : "xl:-mb-6"
               }`}
             >
-              <div className="flex items-start   justify-between">
-                <Header5 className="text-[18px] w-[250px] sm:w-full font-medium text-primary-50">
+              <div
+                className="flex items-start   justify-between cursor-pointer"
+                onClick={() => toggleParagraphVisibility(faq.id)}
+              >
+                <Header5 className="text-[18px] w-[250px] xl:w-full font-medium text-primary-50">
                   {faq.question}
                 </Header5>
                 <button
@@ -115,7 +118,7 @@ function Section5() {
                 </button>
               </div>
               <p
-                className={`text-[12px] sm:text-[14px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[18px]  overflow-hidden  transition-all pb-4 pt-4 max-w-[90%] duration-300 ${
+                className={`text-[12px] xl:text-[14px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[18px]  overflow-hidden  transition-all pb-4 pt-4 max-w-[90%] duration-300 ${
                   openedQuestionIndex === faq.id ? "max-h-[500px]" : "max-h-0"
                 }`}
                 style={{ opacity: openedQuestionIndex === faq.id ? "1" : "0" }}

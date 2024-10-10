@@ -22,10 +22,10 @@ function Section2() {
 
   return (
     <div>
-      <div className=" container1 pt-[24px] sm:pt-[100px]  text-p_black">
+      <div className=" container1 pt-[24px] xl:pt-[100px]  text-p_black">
         {" "}
         <div
-          className=" flex flex-col gap-[8px] sm:gap-[24px] items-center w-full mb-[24px] sm:mb-[64px]"
+          className=" flex flex-col gap-[8px] xl:gap-[24px] items-center w-full mb-[24px] xl:mb-[64px]"
           data-aos="fade-up"
         >
           <Header3>
@@ -37,15 +37,15 @@ function Section2() {
             achieve impactful, measurable results. It{"'"}s time to #GetFocused!
           </Paragraph1>
         </div>
-        <div className=" grid grid-cols-1  sm:grid-cols-5 gap-[24px] sm:gap-[30px]">
-          <div className="  sm:col-span-3">
+        <div className=" grid grid-cols-1 xl:grid-cols-5  sm:grid-cols-1 gap-[24px] xl:gap-[30px]">
+          <div className="  xl:col-span-3">
             <div className=" bg-bg_gray rounded-[24px] " data-aos="fade-right">
               <img
                 src="/images/section2_img1.svg"
                 alt="branding"
                 className="w-full"
               />{" "}
-              <div className=" space-y-[24px] sm:space-y-[32px] p-[24px] sm:p-[32px] flex flex-col w-full">
+              <div className=" space-y-[24px] xl:space-y-[32px] p-[24px] xl:p-[32px] flex flex-col w-full">
                 <Header4>Let{"'"}s Work Together</Header4>{" "}
                 <Paragraph1>
                   I collaborate with businesses like yours to refine their
@@ -58,22 +58,22 @@ function Section2() {
                   text="Book A Session"
                   href="/apply"
                   isLink={true}
-                  additionalClasses="border-0 sm:w-fit w-full "
+                  additionalClasses="border-0 xl:w-fit w-full "
                 />
               </div>
             </div>
           </div>
-          <div className=" sm:col-span-2 space-y-[24px] sm:space-y-[30px]">
+          <div className=" xl:col-span-2 space-y-[24px] xl:space-y-[30px]">
             <div
               className=" bg-bg_gray rounded-[24px] "
               data-aos="fade-down-left"
             >
-              <div className="space-y-[24px] sm:space-y-[32px] p-[24px] sm:p-[32px]">
+              <div className="space-y-[24px] xl:space-y-[32px] p-[24px] xl:p-[32px]">
                 <Header4>My Goal</Header4>{" "}
                 <Paragraph1>
                   With years of experience in the branding and marketing space,
                   I partner with businesses to build identities that resonate
-                  and strategies that drive results. Whether you{"'"}re a small
+                  and strategies that drive results. Whether you{"'"}re a xlall
                   business or an established brand, my goal is to help you stand
                   out and be heard.
                 </Paragraph1>
@@ -84,7 +84,7 @@ function Section2() {
               className=" bg-primary text-white rounded-[24px] "
               data-aos="fade-up-left"
             >
-              <div className="sm:space-y-[32px] space-y-[24px] p-[24px] sm:p-[32px]">
+              <div className="xl:space-y-[6px] 2xl:space-y-[32px] space-y-[24px] p-[24px] xl:p-[32px]">
                 <div className=" flex w-full justify-end  ">
                   <img src="/images/3_circles.svg" alt="" />
                 </div>

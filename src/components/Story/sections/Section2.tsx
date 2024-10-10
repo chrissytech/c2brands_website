@@ -15,7 +15,7 @@ function Section2() {
     <div className=" relative bg-bg_gray" data-aos="flip-up">
       <div className=" container1 py-[24px] sm:py-[100px]">
         {" "}
-        <div className="  grid grid-cols-1 sm:grid-cols-6 gap-[30px]-">
+        <div className="  grid grid-cols-1 md:grid-cols-1 xl:grid-cols-6 gap-[30px]-">
           <div className=" sm:col-span-4 space-y-[30px]">
             <div className="  ">
               <div className="space-y-[24px] sm:space-y-[32px] p-[32px]- text-justify ">
@@ -42,12 +42,12 @@ function Section2() {
               </div>
             </div>
           </div>
-          <div className=" sm:col-span-1 hidden sm:flex">
+          <div className=" sm:col-span-1 hidden xl:flex">
             <div className=" bg-bg_gray rounded-[24px]  p-[31px] ">
               <img
                 src="/images/chrissy_shot.svg"
                 alt="branding"
-                className="w- absolute bottom-0 right-[100px]"
+                className="w- absolute bottom-0 right-[40px]"
               />{" "}
             </div>
           </div>

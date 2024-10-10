@@ -13,13 +13,13 @@ function Overview() {
   });
 
   return (
-    <div className=" bg-bg_gray py-[24px] sm:py-[100px]">
+    <div className=" bg-bg_gray py-[24px] xl:py-[100px]">
       <div
-        className=" container1  bg-white text-p_black"
+        className=" container1 py-[32px]  bg-white text-p_black"
         data-aos="flip-right"
       >
         {" "}
-        <div className=" p-[24px] sm:p-[100px] flex flex-col  sm:gap-[24px] items-center w-full mb-[24px] sm:mb-[64px]">
+        <div className="  xl:p-[100px] flex flex-col  xl:gap-[24px] items-center w-full mb-[24px] xl:mb-[64px]">
           <Header1Plus className="text-center">
             Let{"'"}s <span className=" text-primary">Build </span> Something
             Great Together
@@ -29,7 +29,7 @@ function Overview() {
             {"'"}s talk!
           </Paragraph1>
 
-          <div className=" mt-[24px] sm:mt-[36px] space-y-[24px] mb-[24px]">
+          <div className=" mt-[24px] xl:mt-[36px] space-y-[24px] mb-[24px]">
             <Paragraph1 className="  text-center ">
               To ensure our best work, I only accept ONE new Strategic Business
               Brand Transformation client each month. 

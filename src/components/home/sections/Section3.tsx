@@ -23,10 +23,10 @@ function Section3() {
   return (
     <div>
       {" "}
-      <div className=" container1 py-[24px] sm:py-[100px]  text-p_black">
+      <div className=" container1 py-[24px] xl:py-[100px]  text-p_black">
         {" "}
         <div
-          className=" flex sm:gap-[24px] flex-col items-center w-full mb-[24px] sm:mb-[64px]"
+          className=" flex xl:gap-[24px] flex-col items-center w-full mb-[24px] xl:mb-[64px]"
           data-aos="fade-up"
         >
           <Header3>Meet Chrissy </Header3>
@@ -34,8 +34,8 @@ function Section3() {
             Your partner in strategic brand transformation
           </Paragraph1>
         </div>
-        <div className=" grid col-span-1 sm:grid-cols-6 gap-[24px] sm:gap-[30px]">
-          <div className=" sm:col-span-3">
+        <div className=" grid col-span-1 xl:items-center xl:grid-cols-6 gap-[24px] xl:gap-[30px]">
+          <div className=" xl:col-span-3">
             <div
               className=" bg-bg_gray rounded-[24px] p-[31px] "
               data-aos="fade-left"
@@ -47,9 +47,9 @@ function Section3() {
               />{" "}
             </div>
           </div>
-          <div className=" sm:col-span-3  sm:space-y-[30px]">
+          <div className=" xl:col-span-3  xl:space-y-[30px]">
             <div className="  " data-aos="fade-right">
-              <div className="space-y-[12px] sm:space-y-[32px] sm:p-[32px]">
+              <div className="space-y-[12px]  xl:space-y-[32px] md:space-y-[32px]">
                 <Header4>Transform Your Brand</Header4>{" "}
                 <Paragraph1>
                   I{"'"} m Chrissy Carpenter, founder of the C-Sqaured Brands,

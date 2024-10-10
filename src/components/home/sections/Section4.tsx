@@ -17,10 +17,10 @@ function Section4() {
 
   return (
     <div className=" bg-bg_gray">
-      <div className=" container1 py-[24px] sm:py-[100px]  text-p_black">
+      <div className=" container1 py-[24px] xl:py-[100px]  text-p_black">
         {" "}
         <div
-          className=" flex flex-col sm:gap-[24px] items-center w-full mb-[24px] sm:mb-[64px]"
+          className=" flex flex-col xl:gap-[24px] items-center w-full mb-[24px] xl:mb-[64px]"
           data-aos="fade-up"
         >
           <Header3>
@@ -31,13 +31,13 @@ function Section4() {
             approach that always works.
           </Paragraph1>
         </div>
-        <div className=" grid grid-cols-1 sm:grid-cols-6 gap-[24px] sm:gap-[30px]">
-          <div className=" sm:col-span-2">
+        <div className=" grid grid-cols-1 xl:grid-cols-6 gap-[24px] xl:gap-[30px]">
+          <div className=" xl:col-span-2">
             <div
-              className=" bg-[#FFDCCE] py-[24px] sm:py-[53px] p-[32px] rounded-[24px] "
+              className=" bg-[#FFDCCE] py-[24px] xl:py-[53px] p-[32px] rounded-[24px] "
               data-aos="fade-right"
             >
-              <div className="space-y-[24px] sm:space-y-[32px]    ">
+              <div className="space-y-[24px] xl:space-y-[32px]    ">
                 <div className=" flex w-full justify-end-  ">
                   <img src="/images/ideas.svg" alt="chrissy" />
                 </div>
@@ -46,7 +46,7 @@ function Section4() {
                   I begin by diving deep into your brand, business, and
                   audience. Through thoughtful research and analysis, I uncover
                   the core of what makes your brand unique and identifies the
-                  key challenges and opportunities.
+                  key challenges and opportunities for growth.
                 </Paragraph2>
                 <div>
                   <Link
@@ -59,9 +59,9 @@ function Section4() {
               </div>
             </div>
           </div>
-          <div className=" sm:col-span-2 ">
+          <div className=" xl:col-span-2 ">
             <div className=" bg-[#BECBB9]  rounded-[24px] " data-aos="fade-up">
-              <div className="space-y-[24px] sm:space-y-[32px] p-[32px] py-[24px]  sm:py-[53px]">
+              <div className="space-y-[24px] xl:space-y-[32px] p-[32px] py-[24px]  xl:py-[53px]">
                 <div className=" flex w-full justify-end-  ">
                   <img src="/images/gears.svg" alt="branding" />
                 </div>
@@ -84,12 +84,12 @@ function Section4() {
               </div>
             </div>
           </div>
-          <div className=" sm:col-span-2 ">
+          <div className=" xl:col-span-2 ">
             <div
               className=" bg-[#FF9F78]  rounded-[24px] "
               data-aos="fade-left"
             >
-              <div className="space-y-[24px] sm:space-y-[32px] p-[32px] py-[24px]  sm:py-[53px]">
+              <div className="space-y-[24px] xl:space-y-[32px] p-[32px] py-[24px]  xl:py-[53px]">
                 <div className=" flex w-full justify-end-  ">
                   <img src="/images/box1.svg" alt="business" />
                 </div>

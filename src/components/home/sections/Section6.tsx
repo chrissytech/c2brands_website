@@ -18,11 +18,11 @@ function section6() {
   return (
     <div>
       <div
-        className=" container1 pt-[24px] sm:pt-[100px] text-p_black"
+        className=" container1 pt-[24px] xl:pt-[100px] text-p_black"
         data-aos="fade-up"
       >
         {" "}
-        <div className=" flex flex-col sm:gap-[24px] items-center w-full text-center mb-[64px]">
+        <div className=" flex flex-col xl:gap-[24px] items-center w-full text-center mb-[64px]">
           <Header1Plus>
             Let{"'"}s <span className=" text-primary ">Build </span> Something
             Great Together
@@ -34,7 +34,7 @@ function section6() {
             text="Book A Session"
             href="/apply"
             isLink={true}
-            additionalClasses="border-white mt-[24px] sm:mt-[48px] w-full sm:w-[385px]  "
+            additionalClasses="border-white mt-[24px] xl:mt-[48px] w-full xl:w-[385px]  "
           />
         </div>
       </div>

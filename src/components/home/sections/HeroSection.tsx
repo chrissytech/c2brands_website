@@ -15,14 +15,14 @@ function HeroSection() {
 
   return (
     <div className="  ">
-      <div className="sm:py-[90px] py-[40px] bg-p_black pb-[150px]">
-        <div className=" container1 grid grid-cols-1 sm:grid-cols-2 gap-2 items-center ">
+      <div className="xl:py-[100px] py-[40px] pt-[100px] bg-p_black pb-[150px]">
+        <div className=" container1 grid grid-cols-1 lg:grid-cols-2 gap-2 items-center ">
           {" "}
           <div
-            className="col-span-1 order-2 sm:order-1"
+            className="col-span-1 order-2 lg:order-1"
             data-aos="fade-up-right"
           >
-            <Header1 className="text-white mt-4 sm:mt-0  ">
+            <Header1 className="text-white mt-4 xl:mt-0  ">
               Empowering <span className="text-primary"> Brands</span> with
               Creatives Strategies that drives Results
             </Header1>
@@ -30,12 +30,12 @@ function HeroSection() {
               I help businesses grow with tailored branding and marketing
               solutions that connect, inspire, and deliver.{" "}
             </Paragraph3>
-            <div className="flex sm:flex-row flex-col items-center gap-[24px] sm:gap-[32px]">
+            <div className="flex  xl:flex-row flex-col items-center gap-[24px] xl:gap-[32px]">
               <Button
                 text="Let’s work together"
                 href="/apply"
                 isLink={true}
-                additionalClasses="border-primary sm:w-fit w-full "
+                additionalClasses="border-primary xl:w-fit w-full "
               />
               <Button
                 text="Book a section"
@@ -44,11 +44,11 @@ function HeroSection() {
                 color="text-white"
                 backgroundColor=" bg-p_black"
                 border="border-2 border-white "
-                additionalClasses=" sm:w-fit w-full "
+                additionalClasses=" xl:w-fit w-full "
               />
             </div>
           </div>
-          <div className="col-span-1 order-1 sm:order-2">
+          <div className="col-span-1 order-1 lg:order-2">
             <img
               data-aos="fade-left"
               src="/images/hero_photo.svg"

@@ -90,7 +90,7 @@ const FormComponent = () => {
     <form onSubmit={formik.handleSubmit} className="">
       {step === 1 && (
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px] sm:gap-[32px] mb-6 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px] xl:gap-[32px] mb-6 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px]">
             <div>
               <label className="block text-gray-700">
                 <ParagraphLink1 className="  text-cente font-bold ">
@@ -373,11 +373,11 @@ const FormComponent = () => {
             ) : null}
           </div>
 
-          <div className="flex justify-center w-full sm:mt-[80px]">
+          <div className="flex justify-center w-full xl:mt-[80px]">
             <Button
               text="Continue"
               type="button"
-              additionalClasses=" w-full sm:w-[385px] border-primary-"
+              additionalClasses=" w-full xl:w-[385px] border-primary-"
               onClick={() => setStep(2)} // Move to the next step
             />
           </div>
@@ -387,7 +387,7 @@ const FormComponent = () => {
       {step === 2 && (
         <div
           data-aos="flip-up"
-          className=" flex flex-col gap-[24px] sm:gap-[32px]"
+          className=" flex flex-col gap-[24px] xl:gap-[32px]"
         >
           <div>
             <label className="block text-gray-700">
@@ -599,19 +599,19 @@ const FormComponent = () => {
               <div className="text-red-500 ">{formik.errors.budget}</div>
             ) : null}
           </div>
-          <div className="flex justify-center w-full sm:mt-[80px] flex-col  sm:flex-row gap-[24px] sm:gap-[48px]">
+          <div className="flex justify-center w-full xl:mt-[80px] flex-col  xl:flex-row gap-[24px] xl:gap-[48px]">
             <Button
               text="Back"
               type="button"
               backgroundColor="bg-bg_gray"
               color="text-black hover:text-white"
-              additionalClasses=" w-full sm:w-[385px] border-primary-  "
+              additionalClasses=" w-full xl:w-[385px] border-primary-  "
               onClick={() => setStep(1)} // Move back to the previous step
             />
             <Button
               text="Submit"
               type="submit"
-              additionalClasses=" w-full sm:w-[385px] border-primary-"
+              additionalClasses=" w-full xl:w-[385px] border-primary-"
             />
           </div>
         </div>
