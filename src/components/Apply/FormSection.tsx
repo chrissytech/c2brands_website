@@ -46,7 +46,7 @@ const FormComponent = () => {
       marketingProblems: "",
       brandFixAttempt: "",
       brandDifference: "",
-      whenToStart: "",
+      whenToStart: [],
       budget: "",
     },
     validationSchema,
@@ -579,7 +579,8 @@ const FormComponent = () => {
               text="Back"
               type="button"
               backgroundColor="bg-bg_gray"
-              additionalClasses=" w-full sm:w-[385px] border-primary-  text-black hover:text-white "
+              color="text-black hover:text-white"
+              additionalClasses=" w-full sm:w-[385px] border-primary-  "
               onClick={() => setStep(1)} // Move back to the previous step
             />
             <Button
