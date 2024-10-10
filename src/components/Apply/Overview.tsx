@@ -1,8 +1,6 @@
 "use client";
 
-import Button from "@/components/Button";
-import { Header1Plus, Header3, Header4, Paragraph1 } from "@/components/Text";
-import Link from "next/link";
+import { Header1Plus, Paragraph1 } from "@/components/Text";
 import React from "react";
 import FormComponent from "./FormSection";
 import AOS from "aos";
@@ -17,7 +15,7 @@ function Overview() {
   return (
     <div className=" bg-bg_gray py-[24px] sm:py-[100px]">
       <div
-        className=" container1 -  bg-white text-p_black"
+        className=" container1  bg-white text-p_black"
         data-aos="flip-right"
       >
         {" "}

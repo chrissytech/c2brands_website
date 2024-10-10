@@ -20,7 +20,13 @@ function Navbar() {
   };
 
   return (
-    <div className=" bg-white py-[25px]">
+    <div
+      className={
+        pathname === "/apply"
+          ? "bg-bg_gray  py-[25px]"
+          : " bg-white py-[25px]"
+      }
+    >
       <div className=" container1 flex justify-between items-center">
         <img src="/images/logodemo.svg" alt="" />
         <div className="  gap-[48px] items-center hidden lg:flex">
@@ -46,7 +52,7 @@ function Navbar() {
           text="Apply"
           href="/apply"
           isLink={true}
-          additionalClasses=" border-white  min-w-[152px] hidden lg:block"
+          additionalClasses=" border-0  min-w-[152px] hidden lg:block"
         />{" "}
         <div className="lg:hidden">
           <button onClick={toggleMenu} className="focus:outline-none">

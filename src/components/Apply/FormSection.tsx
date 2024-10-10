@@ -7,6 +7,11 @@ import "react-phone-input-2/lib/style.css";
 import { useState } from "react";
 import { ParagraphLink1 } from "../Text";
 import Button from "../Button";
+import AOS from "aos";
+import React from "react";
+
+
+
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First name is required"),
@@ -40,12 +45,21 @@ const FormComponent = () => {
       businessSummary: "",
       marketingProblems: "",
       brandFixAttempt: "",
+      brandDifference: "",
+      whenToStart: "",
+      budget: "",
     },
     validationSchema,
     onSubmit: (values) => {
       console.log("Form Data", values);
     },
   });
+
+   React.useEffect(() => {
+     AOS.init({
+       duration: 1000,
+     });
+   });
 
   return (
     <form onSubmit={formik.handleSubmit} className="">
@@ -64,7 +78,7 @@ const FormComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.firstName}
-                className="w-full border rounded-lg p-2  "
+                className="w-full border rounded-[10px] p-2  "
                 placeholder="Enter your first name"
               />
               {formik.touched.firstName && formik.errors.firstName ? (
@@ -85,7 +99,7 @@ const FormComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.lastName}
-                className="w-full border rounded-lg  p-2"
+                className="w-full border rounded-[10px]  p-2"
                 placeholder="Enter your last name"
               />
               {formik.touched.lastName && formik.errors.lastName ? (
@@ -106,7 +120,7 @@ const FormComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
-                className="w-full border rounded-lg p-2  "
+                className="w-full border rounded-[10px] p-2  "
                 placeholder="Enter your email address"
               />
               {formik.touched.email && formik.errors.email ? (
@@ -132,14 +146,20 @@ const FormComponent = () => {
                 inputStyle={{
                   width: "100%",
                   //   padding: "20px",
-                  height: "50px",
-                  //   borderRadius: "8px",
+                  height: "46px",
+                  borderRadius: "10px",
+                  // padding: "2px",
                   //   borderColor: "#E5E7EB",
                   // fontSize: "16px", // Increase font size for larger text
                 }}
                 buttonStyle={{
-                  width: "50px", // Increase the width of the flag area
-                  fontSize: "20px", // Increase the size of the flag
+                  width: "0px", // Increase the width of the flag area
+                  borderRadius: "10px",
+                  backgroundColor: "white",
+                  borderColor: "white",
+                  border: "0px",
+                  borderWidth: "0px",
+                  margin: "4px",
                 }}
                 containerClass="phone-input-container"
               />
@@ -161,7 +181,7 @@ const FormComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.businessName}
-                className="w-full border rounded-lg p-2 "
+                className="w-full border rounded-[10px] p-2 "
                 placeholder="Enter your business name"
               />
               {formik.touched.businessName && formik.errors.businessName ? (
@@ -184,7 +204,7 @@ const FormComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.businessWebsite}
-                className="w-full border rounded-lg p-2 "
+                className="w-full border rounded-[10px] p-2 "
                 placeholder="Enter your business website"
               />
               {formik.touched.businessWebsite &&
@@ -207,7 +227,7 @@ const FormComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.numberOfEmployees}
-                className="w-full border rounded-lg p-2 "
+                className="w-full border rounded-[10px] p-2  "
               >
                 <option value="" label="Select no of employees" />
                 <option value="1-10" label="1-10" />
@@ -236,7 +256,7 @@ const FormComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.annualRevenue}
-                className="w-full border rounded-lg p-2  "
+                className="w-full border rounded-[10px] p-2  "
               >
                 <option value="" label="Select annual revenue" />
                 <option value="0-100K" label="0-100K" />
@@ -267,7 +287,7 @@ const FormComponent = () => {
                   name="qualities"
                   value="successful_business"
                   onChange={formik.handleChange}
-                  className="form-checkbox h-5 w-5 text-orange-500"
+                  className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
                 />
                 <span className="ml-2 text-gray-700">
                   <ParagraphLink1 className="  text-cente ">
@@ -282,7 +302,7 @@ const FormComponent = () => {
                   name="qualities"
                   value="unfocused_marketing"
                   onChange={formik.handleChange}
-                  className="form-checkbox h-5 w-5 text-orange-500"
+                  className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
                 />
                 <span className="ml-2 text-gray-700">
                   <ParagraphLink1 className="  text-cente ">
@@ -297,7 +317,7 @@ const FormComponent = () => {
                   name="qualities"
                   value="ready_to_invest"
                   onChange={formik.handleChange}
-                  className="form-checkbox h-5 w-5 text-orange-500"
+                  className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
                 />
                 <span className="ml-2 text-gray-700">
                   <ParagraphLink1 className="  text-cente ">
@@ -312,7 +332,7 @@ const FormComponent = () => {
                   name="qualities"
                   value="open_to_ideas"
                   onChange={formik.handleChange}
-                  className="form-checkbox h-5 w-5 text-orange-500"
+                  className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
                 />
                 <span className="ml-2 text-gray-700">
                   {" "}
@@ -328,11 +348,11 @@ const FormComponent = () => {
             ) : null}
           </div>
 
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full sm:mt-[80px]">
             <Button
               text="Continue"
               type="button"
-              additionalClasses=" w-[385px] border-primary-"
+              additionalClasses=" w-full sm:w-[385px] border-primary-"
               onClick={() => setStep(2)} // Move to the next step
             />
           </div>
@@ -340,11 +360,14 @@ const FormComponent = () => {
       )}
 
       {step === 2 && (
-        <div>
+        <div
+          data-aos="flip-up"
+          className=" flex flex-col gap-[24px] sm:gap-[32px]"
+        >
           <div>
             <label className="block text-gray-700">
               <ParagraphLink1 className="  text-cente font-bold ">
-                First Name
+                Summarize your business{" "}
               </ParagraphLink1>
             </label>
             <textarea
@@ -352,14 +375,218 @@ const FormComponent = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.businessSummary}
-              className="w-full border rounded-lg p-2  "
-              placeholder="Enter your first name"
+              className="w-full border rounded-[10px] p-2 h-[169px] "
             />
             {formik.touched.businessSummary && formik.errors.businessSummary ? (
               <div className="text-red-500 ">
                 {formik.errors.businessSummary}
               </div>
             ) : null}
+          </div>
+          {/* problems in org */}
+          <div>
+            <label className="block text-gray-700">
+              <ParagraphLink1 className="  text-cente font-bold ">
+                What problems are you currently facing with your marketing and
+                branding?{" "}
+              </ParagraphLink1>
+            </label>
+            <textarea
+              name="marketingProblems"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.marketingProblems}
+              className="w-full border rounded-[10px] p-2 h-[169px] "
+            />
+            {formik.touched.marketingProblems &&
+            formik.errors.businessSummary ? (
+              <div className="text-red-500 ">
+                {formik.errors.marketingProblems}
+              </div>
+            ) : null}
+          </div>{" "}
+          {/* try to fix */}
+          <div>
+            <label className="block text-gray-700">
+              <ParagraphLink1 className="  text-cente font-bold ">
+                Have you tried to fix your brand before? If so, why didn't it
+                work?{" "}
+              </ParagraphLink1>
+            </label>
+            <textarea
+              name="brandFixAttempt"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.brandFixAttempt}
+              className="w-full border rounded-[10px] p-2 h-[169px] "
+            />
+            {formik.touched.brandFixAttempt && formik.errors.brandFixAttempt ? (
+              <div className="text-red-500 ">
+                {formik.errors.brandFixAttempt}
+              </div>
+            ) : null}
+          </div>
+          {/* what makes your business and brand diffent from others */}
+          <div>
+            <label className="block text-gray-700">
+              <ParagraphLink1 className="  text-cente font-bold ">
+                What makes your business and brand different from others and why
+                should ...{" "}
+              </ParagraphLink1>
+            </label>
+            <textarea
+              name="brandDifference"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.brandDifference}
+              className="w-full border rounded-[10px] p-2 h-[169px] "
+            />
+            {formik.touched.brandDifference && formik.errors.brandDifference ? (
+              <div className="text-red-500 ">
+                {formik.errors.brandDifference}
+              </div>
+            ) : null}
+          </div>
+          {/* if accepted how quickly do you want to get started */}
+          <div>
+            <div className="">
+              <p className="text-gray-700">
+                <ParagraphLink1 className="  text-cente font-bold ">
+                  {" "}
+                  If accepted, how quickly do you want to get started?
+                </ParagraphLink1>
+              </p>
+              <div className="flex flex-col space-y-3">
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="qualities"
+                    value="immediately"
+                    onChange={formik.handleChange}
+                    className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
+                  />
+                  <span className="ml-2 text-gray-700">
+                    <ParagraphLink1 className="  text-cente ">
+                      {" "}
+                      Immediately{" "}
+                    </ParagraphLink1>
+                  </span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="qualities"
+                    value="couple_of_days"
+                    onChange={formik.handleChange}
+                    className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
+                  />
+                  <span className="ml-2 text-gray-700">
+                    <ParagraphLink1 className="  text-cente ">
+                      {" "}
+                      In couple of days{" "}
+                    </ParagraphLink1>
+                  </span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="qualities"
+                    value="this_week"
+                    onChange={formik.handleChange}
+                    className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
+                  />
+                  <span className="ml-2 text-gray-700">
+                    <ParagraphLink1 className="  text-cente ">
+                      This Week{" "}
+                    </ParagraphLink1>
+                  </span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="qualities"
+                    value="this_month"
+                    onChange={formik.handleChange}
+                    className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
+                  />
+                  <span className="ml-2 text-gray-700">
+                    {" "}
+                    <ParagraphLink1 className="  text-cente ">
+                      {" "}
+                      This Month{" "}
+                    </ParagraphLink1>
+                  </span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="qualities"
+                    value="this_year"
+                    onChange={formik.handleChange}
+                    className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
+                  />
+                  <span className="ml-2 text-gray-700">
+                    {" "}
+                    <ParagraphLink1 className="  text-cente ">
+                      {" "}
+                      This year{" "}
+                    </ParagraphLink1>
+                  </span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="qualities"
+                    value="not_sure"
+                    onChange={formik.handleChange}
+                    className="form-checkbox min-h-5 min-w-5 text-orange-500 appearance-none checked:bg-primary checked:border-transparent focus:outline-none border border-primary rounded checked:after:content-['✓'] checked:after:text-white checked:after:text-xs checked:after:flex checked:after:justify-center"
+                  />
+                  <span className="ml-2 text-gray-700">
+                    {" "}
+                    <ParagraphLink1 className="  text-cente ">
+                      {" "}
+                      Not sure{" "}
+                    </ParagraphLink1>
+                  </span>
+                </label>
+              </div>
+              {formik.touched.qualities && formik.errors.qualities ? (
+                <div className="text-red-500 ">{formik.errors.qualities}</div>
+              ) : null}
+            </div>{" "}
+          </div>
+          <div>
+            <label className="block text-gray-700">
+              <ParagraphLink1 className="  text-cente font-bold ">
+                Estimated investment to fix your entire marketing and branding
+                strategy?{" "}
+              </ParagraphLink1>
+            </label>
+            <input
+              type="text"
+              name="budget"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.budget}
+              className="w-full border rounded-[10px] p-2  "
+            />
+            {formik.touched.budget && formik.errors.budget ? (
+              <div className="text-red-500 ">{formik.errors.budget}</div>
+            ) : null}
+          </div>
+          <div className="flex justify-center w-full sm:mt-[80px] flex-col  sm:flex-row gap-[24px] sm:gap-[48px]">
+            <Button
+              text="Back"
+              type="button"
+              backgroundColor="bg-bg_gray"
+              additionalClasses=" w-full sm:w-[385px] border-primary-  text-black hover:text-white "
+              onClick={() => setStep(1)} // Move back to the previous step
+            />
+            <Button
+              text="Submit"
+              type="submit"
+              additionalClasses=" w-full sm:w-[385px] border-primary-"
+            />
           </div>
         </div>
       )}
