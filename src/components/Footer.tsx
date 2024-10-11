@@ -8,7 +8,12 @@ import { usePathname } from "next/navigation";
 
 
 function Footer() {
-    const pathname = usePathname();
+  const pathname = usePathname();
+  
+  if (pathname.includes("/chrissy-only")) {
+    return null; // Return null to hide the navbar
+  }
+
 
   return (
     <div

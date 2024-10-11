@@ -18,12 +18,14 @@ interface ButtonProps {
   isLink?: boolean;
   additionalClasses?: string;
   type?: any;
+  disabled?: any;
 }
 
 const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
   type,
+  disabled,
   href,
   color = "text-white",
   border = "border",
@@ -38,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
 
   if (isLink && href) {
     return (
-      <Link href={href} passHref className={commonClasses}>
+      <Link href={href} passHref className={commonClasses} onClick={onClick}>
         <p>
           <span className={hoverEffectClasses} aria-hidden="true"></span>
           <span className="relative z-10">{text}</span>
@@ -48,7 +50,12 @@ const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <button type={type} onClick={onClick} className={commonClasses}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={commonClasses}
+      disabled={disabled}
+    >
       <span className={hoverEffectClasses} aria-hidden="true"></span>
       <span className="relative z-10">{text}</span>
     </button>

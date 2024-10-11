@@ -19,6 +19,11 @@ function Navbar() {
     setMenuOpen(false);
   };
 
+  if (pathname.includes("/chrissy-only")) {
+    return null; // Return null to hide the navbar
+  }
+
+
   return (
     <div
       className={
@@ -72,14 +77,14 @@ function Navbar() {
         {menuOpen && (
           <div className="p-[24px] flex flex-col justify-center items-center">
             <div className=" container1 flex flex-col w-full space-y-[24px] justify-between items-center">
-              <Link href="/">
+              <Link href="/" onClick={toggleMenu}>
                 <ParagraphLink1
                   className={pathname === "/" ? "text-primary font-bold " : " "}
                 >
                   Home
                 </ParagraphLink1>
               </Link>
-              <Link href="/story">
+              <Link href="/story" onClick={toggleMenu}>
                 {" "}
                 <ParagraphLink1
                   className={
@@ -93,7 +98,8 @@ function Navbar() {
                 text="Apply"
                 href="/apply"
                 isLink={true}
-                additionalClasses=" border-white  sm:min-w-[152px] min-w-full "
+                onClick={toggleMenu}
+                additionalClasses=" border-0  sm:min-w-[152px] min-w-full "
               />{" "}
             </div>{" "}
           </div>
