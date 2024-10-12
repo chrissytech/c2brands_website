@@ -17,11 +17,11 @@ const ProfileDropdown = () => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block whitespace-nowrap text-left">
       {/* Profile Button */}
       <button
         onClick={toggleDropdown}
-        className="flex items-center gap-2 p-2  rounded-[8px] bg-white transition"
+        className="flex items-center gap-2 p-2  rounded-[8px] w-[170px] bg-white transition"
       >
         <img
           src="/images/profilePics.svg" // Replace with the actual path to profile image
