@@ -13,7 +13,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "@/lib/firebase"; // Firestore setup
 import { collection, getDocs, updateDoc, doc } from "firebase/firestore"; // Firestore functions
 import AOS from "aos";
-
+import SearchBar from "../navBar/SearchBar";
 
 type Submission = {
   id: string;
@@ -40,6 +40,10 @@ type Submission = {
 
 function NewSubmission() {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
+  const [filteredSubmissions, setFilteredSubmissions] = useState<Submission[]>(
+    []
+  );
+
   const [selectedSubmission, setSelectedSubmission] =
     useState<Submission | null>(null);
   const [loading, setLoading] = useState(true); // Loading state
@@ -69,10 +73,21 @@ function NewSubmission() {
           qualities: doc.data().qualities,
           viewed: doc.data().viewed || false, // Retrieve 'viewed' field, defaulting to false
           timestamp: doc.data().timestamp
-            ? doc.data().timestamp.toDate().toLocaleString()
-            : "N/A", // Assuming timestamp is stored as Firestore timestamp
+            ? doc.data().timestamp.toDate()
+            : null,
         }));
+
+        // Sort submissions by timestamp, handling nulls
+        submissionData.sort((a, b) => {
+          // @ts-ignore
+          const timeA = a.timestamp ? a.timestamp.getTime() : 0;
+          // @ts-ignore
+          const timeB = b.timestamp ? b.timestamp.getTime() : 0;
+          return timeB - timeA;
+        });
+
         setSubmissions(submissionData);
+        setFilteredSubmissions(submissionData); // Initialize filtered submissions
       } catch (error) {
         console.error("Error fetching submissions: ", error);
       } finally {
@@ -104,6 +119,9 @@ function NewSubmission() {
     );
     setSubmissions(updatedSubmissions); // Update state with viewed submission
     setSelectedSubmission(submission);
+
+    // Scroll to the top of the page
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleBack = () => {
@@ -113,19 +131,57 @@ function NewSubmission() {
   // Predefined list of colors to cycle through
   const bgColors = ["bg-red-500", "bg-green-500", "bg-blue-600"];
 
-
-    React.useEffect(() => {
-      AOS.init({
-        duration: 1000,
-      });
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
     });
+  });
+
+  const formatTimestamp = (timestamp: Date | null): string => {
+    if (!timestamp) return "N/A";
+
+    const options: Intl.DateTimeFormatOptions = {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    };
+
+    const formattedTime = timestamp.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+    const formattedDate = timestamp.toLocaleDateString("en-US", options);
+
+    // Extract day from formattedDate to append "th", "st", "nd", or "rd"
+    const day = timestamp.getDate();
+    const daySuffix = (day: any) => {
+      if (day > 3 && day < 21) return "th"; // We only need to worry about 11-13 for suffix
+      switch (day % 10) {
+        case 1:
+          return "st";
+        case 2:
+          return "nd";
+        case 3:
+          return "rd";
+        default:
+          return "th";
+      }
+    };
+
+    return ` ${formattedDate}`;
+  };
+
 
   return (
     <div className=" bg-bg_gray min-h-screen pb-[100px] text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px]">
-      <div className="container1 pt-[60px]  xl:pt-[124px] pb-[24px] ">
-        <Header1 className="text-black  invisible xl:visible  ">
+      <div className="container1 pt-[60px]  xl:pt-[104px] pb-[24px] ">
+        <Header4 className="text-black  invisible xl:visible  ">
           Welcome back Chrissy,
-        </Header1>{" "}
+        </Header4>{" "}
       </div>
       <div className="mx-4 xl:mx-0">
         <div className=" container1  bg-white py-[35px]  rounded-[15px] shadow-md">
@@ -159,10 +215,10 @@ function NewSubmission() {
                         </span>
                       </div>
                       <div>
-                        <Header4 className="text-[23px] ">
+                        <Header5 className="text-[23px] ">
                           {selectedSubmission.name}
-                        </Header4>
-                        <Paragraph2 className="text-sm -mt-3 font-semibold-">
+                        </Header5>
+                        <Paragraph2 className="text-sm sm:-mt-2 font-semibold-">
                           {selectedSubmission.email}
                         </Paragraph2>
                       </div>
@@ -172,8 +228,16 @@ function NewSubmission() {
 
                 <div className=" mt-[40px] space-y-[40px]">
                   {" "}
-                  <div className=" px-[30px] py-[39px] bg-bg_gray rounded-[15px] space-y-[40px]">
-                    <div className=" grid grid-cols-1 xl:grid-cols-2 items-center gap-[40px] ">
+                  <div className=" px-4 sm:px-[30px] py-[39px] bg-bg_gray rounded-[15px] space-y-[40px]">
+                    <Paragraph2 className="text-sm text-gray-500 text-center underline-">
+                      {formatTimestamp(
+                        typeof selectedSubmission.timestamp === "string"
+                          ? new Date(selectedSubmission.timestamp) // Convert string to Date
+                          : selectedSubmission.timestamp // Use as is if it's already a Date object
+                      )}{" "}
+                      {/* Use the custom formatting function */}
+                    </Paragraph2>
+                    <div className=" grid grid-cols-1 xl:grid-cols-2 items-center gap-4 sm:gap-[40px] ">
                       <div>
                         <ParagraphLink1 className="  text-cente font-bold ">
                           First Name
@@ -409,17 +473,23 @@ function NewSubmission() {
             ) : (
               // Render the list of submissions if none is selected
               <div className="space-y-2 scrollable-div- overflow-y-auto- max-h-screen- ">
-                <Header4>New Submissions</Header4>
-                {submissions.map((submission, index) => (
+                <SearchBar
+                  submissions={submissions}
+                  // @ts-ignore
+                  onSearchResults={setFilteredSubmissions}
+                />
+
+                <Header5 className="pt-3">New Submissions</Header5>
+                {filteredSubmissions.map((submission, index) => (
                   <div
                     key={submission.id}
-                    className={`flex items-start space-x-4 py-4 bg-white rounded-lg cursor-pointer hover:scale-105 transition-transform duration-300 ${
+                    className={`flex items-start  space-x-4 py-2 bg-white rounded-lg cursor-pointer hover:scale-105 transition-transform duration-300 ${
                       submission.viewed ? "text-gray-400" : "" // Change text color for viewed submissions
                     }`}
                     onClick={() => handleClick(submission)}
                   >
                     <div
-                      className={`min-w-12 min-h-12 flex items-center justify-center text-white rounded-full ${
+                      className={`min-w-12 min-h-12 flex items-center justify-center mt-2 text-white rounded-full ${
                         bgColors[index % bgColors.length]
                       }`}
                     >
@@ -432,7 +502,7 @@ function NewSubmission() {
                         {submission.name}
                       </Paragraph1>
 
-                      <Paragraph2 className=" text-sm truncate overflow-hidden whitespace-nowrap lg: max-w-[90%] -max-w-[300px]">
+                      <Paragraph2 className=" text-sm xl:-mt-2 truncate overflow-hidden whitespace-nowrap lg: max-w-[90%] -max-w-[300px]">
                         {submission.businessSummary}
                       </Paragraph2>
                     </div>

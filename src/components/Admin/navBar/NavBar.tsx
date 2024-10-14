@@ -6,6 +6,9 @@ import Profile from "./Profile";
 import { Header1, ParagraphLink1 } from "@/components/Text";
 import Image from "next/image";
 import Link from "next/link";
+import { signOut } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { useRouter } from "next/navigation";
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,13 +16,19 @@ function NavBar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await signOut(auth);
+    router.push("/chrissy-only/auth/login"); // Redirect to sign-in after logging out
+  };
+
   return (
     <div className="bg-bg_gray fixed w-full z-50">
       <div className="container1 py-[12px] w-full text-p_black">
         <div className="flex justify-between items-center">
           <img src="/images/logodemo.svg" alt="Logo" />
           <div className="xl:flex gap-[24px] hidden">
-            <SearchBar />
             <Profile />
           </div>
           <div className="xl:hidden z-[999] flex">
@@ -35,7 +44,7 @@ function NavBar() {
         </div>
 
         <div className="pt-4 xl:hidden ">
-          <SearchBar />
+          {/* <SearchBar /> */}
         </div>
 
         {/* Mobile Menu */}
@@ -47,11 +56,13 @@ function NavBar() {
           <div className="container1 flex flex-col w-full items-center-">
             <div className="py-1">
               <button
-                // onClick={handleLogout}
+                onClick={handleSignOut}
                 className="w-full text-left border rounded-[8px] px-2 py-2 flex gap-2 text-gray-700 hover:bg-bg_gray"
               >
                 <img src="/icons/logout.svg" alt="" />
-                <ParagraphLink1 className=" font-semibold">Logout</ParagraphLink1>
+                <ParagraphLink1 className=" font-semibold">
+                  Logout
+                </ParagraphLink1>
               </button>
             </div>
             {/* Add more menu items here */}

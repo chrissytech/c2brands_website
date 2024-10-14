@@ -1,19 +1,22 @@
-"use client"
-
+"use client";
 
 import { ParagraphLink1, ParagraphLink2 } from "@/components/Text";
 import { useState } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { useRouter } from "next/navigation";
 
 const ProfileDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await signOut(auth);
+    router.push("/chrissy-only/auth/login"); // Redirect to sign-in after logging out
+  };
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
-  };
-
-  const handleLogout = () => {
-    // Handle logout logic here
-    console.log("Logging out...");
   };
 
   return (
@@ -49,12 +52,13 @@ const ProfileDropdown = () => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white border rounded-[8px]">
+        <div className="absolute right-0 mt-2 w-48 bg-white border- rounded-[8px]">
           <div className="py-1">
             <button
-              onClick={handleLogout}
-              className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              onClick={handleSignOut}
+              className="w-full text-left px-4 py-2 text-sm text-gray-700 flex gap-2 hover:bg-gray-100"
             >
+              <img src="/icons/logout.svg" alt="" />
               Log Out
             </button>
           </div>

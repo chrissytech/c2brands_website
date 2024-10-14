@@ -18,7 +18,7 @@ const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required"),
   phoneNumber: Yup.string().required("Phone number is required"),
   businessName: Yup.string().required("Business name is required"),
-  businessWebsite: Yup.string().url("Invalid URL"),
+  businessWebsite: Yup.string().url("Invalid URL; paste the actual link to your business website here"),
   numberOfEmployees: Yup.string().required("Number of employees is required"),
   annualRevenue: Yup.string().required("Annual revenue is required"),
   qualities: Yup.array()
@@ -58,7 +58,7 @@ const FormComponent = () => {
           behavior: "smooth", // Smooth scroll
           block: "center", // Center the element in the view
         });
-      }, 3000);
+      }, 1000);
 
       // Handle success case (e.g., show a success message or navigate)
     } catch (error) {
@@ -642,7 +642,7 @@ const FormComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.budget}
-                className="w-full border rounded-[10px] p-2  "
+                className="w-full border rounded-[10px] p-2  outline-none "
               />
               {formik.touched.budget && formik.errors.budget ? (
                 <div className="text-red-500 ">{formik.errors.budget}</div>
