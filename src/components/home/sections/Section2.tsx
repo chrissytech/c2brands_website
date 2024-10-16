@@ -73,7 +73,7 @@ function Section2() {
                 <Paragraph1>
                   With years of experience in the branding and marketing space,
                   I partner with businesses to build identities that resonate
-                  and strategies that drive results. Whether you{"'"}re a xlall
+                  and strategies that drive results. Whether you{"'"}re a small
                   business or an established brand, my goal is to help you stand
                   out and be heard.
                 </Paragraph1>
@@ -81,9 +81,12 @@ function Section2() {
               </div>
             </div>
             <div
-              className=" bg-primary text-white rounded-[24px] "
+              className=" bg-primary relative overflow-hidden text-white rounded-[24px] "
               data-aos="fade-up-left"
             >
+              <div className=" absolute bottom-0 -right-[60px] flex w-full justify-end  ">
+                  <img src="/images/wave2.svg" alt="" />
+                </div>
               <div className="xl:space-y-[6px] 2xl:space-y-[32px] space-y-[24px] p-[24px] xl:p-[32px]">
                 <div className=" flex w-full justify-end  ">
                   <img src="/images/3_circles.svg" alt="" />

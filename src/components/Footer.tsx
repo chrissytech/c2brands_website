@@ -100,12 +100,12 @@ function Footer() {
                 </ParagraphLink2>
               </Link>
 
-              <Link href="/">
+              {/* <Link href="/">
                 {" "}
                 <ParagraphLink2 className=" text-[#ECECEC] underline">
                   Cookies Settings{" "}
                 </ParagraphLink2>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

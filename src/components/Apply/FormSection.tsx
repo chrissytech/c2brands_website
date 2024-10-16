@@ -11,6 +11,7 @@ import AOS from "aos";
 import React from "react";
 import { db } from "@/lib/firebase"; // Import Firestore database
 import { collection, addDoc } from "firebase/firestore"; // Firestore functions
+import { sendEmail } from "@/lib/serverActions"; // Import server action
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First name is required"),
@@ -18,7 +19,9 @@ const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required"),
   phoneNumber: Yup.string().required("Phone number is required"),
   businessName: Yup.string().required("Business name is required"),
-  businessWebsite: Yup.string().url("Invalid URL; paste the actual link to your business website here"),
+  businessWebsite: Yup.string().url(
+    "Invalid URL; paste the actual link to your business website here"
+  ),
   numberOfEmployees: Yup.string().required("Number of employees is required"),
   annualRevenue: Yup.string().required("Annual revenue is required"),
   qualities: Yup.array()
@@ -59,6 +62,9 @@ const FormComponent = () => {
           block: "center", // Center the element in the view
         });
       }, 1000);
+
+      // Send the email notification
+      await sendEmail(); // Use the imported server action
 
       // Handle success case (e.g., show a success message or navigate)
     } catch (error) {
@@ -129,6 +135,7 @@ const FormComponent = () => {
 
   return (
     <div>
+      {/* <button onClick={async () => await sendEmail()}>Send</button> */}
       {successPopupVisible && <SuccessPopup />} {/* Render the success popup */}
       <form onSubmit={formik.handleSubmit} className="">
         {step === 1 && (

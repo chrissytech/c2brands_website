@@ -24,7 +24,7 @@ function HeroSection() {
           >
             <Header1 className="text-white mt-4 xl:mt-0  ">
               Empowering <span className="text-primary"> Brands</span> with
-              Creatives Strategies that drives Results
+              Creatives Strategies that drive Results
             </Header1>
             <Paragraph3 className="mt-[16px] mb-[48px] text-white">
               I help businesses grow with tailored branding and marketing
