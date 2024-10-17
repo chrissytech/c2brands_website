@@ -32,7 +32,7 @@ export async function sendMail({
 
   try {
     const sendResult = await transport.sendMail({
-      from: SMTP_EMAIL,
+      from: `"CSquare-Brands" <${SMTP_EMAIL}>`, // Custom sender name
       to,
       subject,
       html: body,

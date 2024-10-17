@@ -22,7 +22,7 @@ function section6() {
         data-aos="fade-up"
       >
         {" "}
-        <div className=" flex flex-col xl:gap-[24px] items-center w-full text-center mb-[64px]">
+        <div className=" flex flex-col xl:gap-[24px] items-center w-full text-center pb-[64px]">
           <Header1Plus>
             Let{"'"}s <span className=" text-primary ">Build </span> Something
             Great Together

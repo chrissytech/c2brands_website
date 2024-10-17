@@ -18,7 +18,7 @@ function Footer() {
   return (
     <div
       className={
-        pathname === "/apply"
+        ["/apply", "/privacy-policy", "/terms-of-service"].includes(pathname)
           ? "bg-bg_gray sm:py-[100px]"
           : " bg-white sm:py-[100px]"
       }
@@ -87,14 +87,14 @@ function Footer() {
               © 2024 Csquared Brands. All rights reserved.
             </ParagraphLink2>
             <div className="flex flex-wrap gap-[24px] items-center">
-              <Link href="/">
+              <Link href="/privacy-policy">
                 {" "}
                 <ParagraphLink2 className=" text-[#ECECEC] underline ">
                   Privacy Policy
                 </ParagraphLink2>
               </Link>
 
-              <Link href="/">
+              <Link href="/terms-of-service">
                 <ParagraphLink2 className=" text-[#ECECEC] underline">
                   Terms of Service{" "}
                 </ParagraphLink2>

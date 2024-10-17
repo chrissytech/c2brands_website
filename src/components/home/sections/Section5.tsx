@@ -26,37 +26,37 @@ function Section5() {
       id: 1,
       question: "Q. What services do you offer?",
       answer:
-        "I offer a range of services, including brand strategy, marketing consulting, digital marketing strategy, and creative direction. Whether you need help building a brand from scratch or improving your current marketing efforts, I can tailor my solutions to fit your needs.",
+        "Chrissy provides a range of services, including brand strategy, marketing consulting, digital marketing strategy, and creative direction. Whether you need help building a brand from scratch or improving your current marketing efforts, Chrissy can tailor a solution to fit your needs.",
     },
     {
       id: 2,
       question: "Q. Who do you typically work with?",
       answer:
-        "I offer a range of services, including brand strategy, marketing consulting, digital marketing strategy, and creative direction. Whether you need help building a brand from scratch or improving your current marketing efforts, I can tailor my solutions to fit your needs.",
+        "Chrissy works with small to medium-sized business owners, entrepreneurs, and marketing teams looking for expert guidance in brand development and strategic marketing. Her clients span a variety of industries, all seeking to enhance their brand presence and marketing effectiveness.",
     },
     {
       id: 3,
       question: "Q. How does the consultation process work?",
       answer:
-        "I offer a range of services, including brand strategy, marketing consulting, digital marketing strategy, and creative direction. Whether you need help building a brand from scratch or improving your current marketing efforts, I can tailor my solutions to fit your needs.",
+        "The process begins with an initial consultation to understand your business goals, challenges, and needs. From there, Chrissy will provide recommendations and a tailored strategy that aligns with your objectives, offering ongoing support throughout the collaboration.",
     },
     {
       id: 4,
       question: "Q. Do you work with both startups and established businesses?",
       answer:
-        "I offer a range of services, including brand strategy, marketing consulting, digital marketing strategy, and creative direction. Whether you need help building a brand from scratch or improving your current marketing efforts, I can tailor my solutions to fit your needs.",
+        "Yes! Chrissy has experience working with startups to build their brand identity from the ground up, as well as with established businesses looking to refine their branding and marketing strategies.",
     },
     {
       id: 5,
       question: "Q. What’s included in a branding strategy?",
       answer:
-        "I offer a range of services, including brand strategy, marketing consulting, digital marketing strategy, and creative direction. Whether you need help building a brand from scratch or improving your current marketing efforts, I can tailor my solutions to fit your needs.",
+        "A branding strategy covers everything from defining your brand’s values, mission, and positioning, to visual identity and messaging. Chrissy ensures that every aspect of your brand aligns with your overall business goals and resonates with your target audience.",
     },
     {
       id: 6,
       question: "Q. How do I get started?",
       answer:
-        "I offer a range of services, including brand strategy, marketing consulting, digital marketing strategy, and creative direction. Whether you need help building a brand from scratch or improving your current marketing efforts, I can tailor my solutions to fit your needs.",
+        "Simply reach out through the contact form or book a consultation directly. Chrissy will follow up to schedule an initial call where you can discuss your project needs and get started on the right path.",
     },
   ];
   return (
@@ -118,7 +118,7 @@ function Section5() {
                 </button>
               </div>
               <p
-                className={`text-[12px] xl:text-[14px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[18px]  overflow-hidden  transition-all pb-4 pt-4 max-w-[90%] duration-300 ${
+                className={`text-[12px] xl:text-[14px]- md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[18px]  overflow-hidden  transition-all pb-4 pt-4 max-w-[90%] duration-300 ${
                   openedQuestionIndex === faq.id ? "max-h-[500px]" : "max-h-0"
                 }`}
                 style={{ opacity: openedQuestionIndex === faq.id ? "1" : "0" }}

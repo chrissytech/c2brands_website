@@ -27,7 +27,7 @@ function Navbar() {
   return (
     <div
       className={
-        pathname === "/apply"
+        ["/apply", "/privacy-policy", "/terms-of-service"].includes(pathname)
           ? "bg-bg_gray  py-[8px] "
           : " bg-white py-[8px] fixed flex w-full z-20"
       }
