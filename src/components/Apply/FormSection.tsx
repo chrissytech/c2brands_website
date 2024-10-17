@@ -638,21 +638,39 @@ const FormComponent = () => {
             </div>
             <div>
               <label className="block text-gray-700">
-                <ParagraphLink1 className="  text-cente font-bold ">
+                <ParagraphLink1 className="text-center- font-bold">
                   Estimated investment to fix your entire marketing and branding
-                  strategy?{" "}
+                  strategy?
                 </ParagraphLink1>
               </label>
               <input
                 type="text"
                 name="budget"
-                onChange={formik.handleChange}
+                onChange={(e) => {
+                  const rawValue = e.target.value.replace(/[^0-9]/g, ""); // Keep only numeric characters
+                  const formattedValue = new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    minimumFractionDigits: 0,
+                  }).format(Number(rawValue)); // Format as currency
+
+                  formik.setFieldValue("budget", rawValue); // Store raw value in Formik state
+                  e.target.value = formattedValue; // Show formatted value in the input field
+                }}
                 onBlur={formik.handleBlur}
-                value={formik.values.budget}
-                className="w-full border rounded-[10px] p-2  outline-none "
+                defaultValue={
+                  formik.values.budget
+                    ? new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        minimumFractionDigits: 0,
+                      }).format(Number(formik.values.budget))
+                    : ""
+                }
+                className="w-full border rounded-[10px] p-2 outline-none"
               />
               {formik.touched.budget && formik.errors.budget ? (
-                <div className="text-red-500 ">{formik.errors.budget}</div>
+                <div className="text-red-500">{formik.errors.budget}</div>
               ) : null}
             </div>
             <div className="flex justify-center w-full xl:mt-[80px] flex-col  xl:flex-row gap-[24px] xl:gap-[48px]">
